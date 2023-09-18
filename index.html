@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            // pow
+            let num = [1 , 2 , 4 , 5 , 2 , 7 , 4 , 1, -1, -2];
+            let num2 = num.map((n)=>n**2)
+
+            //delete 
+
+            let num3 = [...new Set(num)]
+            
+            //>0
+            for (let n of num){
+                n>0? console.log(`true ${n}>0`):console.log(`false ${n}<0`)
+            }
+            // < 0
+            let num4 = num.filter((n)=>n<0)
+            //sum
+            sum=0
+            for (let n of num){
+                sum = sum+n 
+            }
+            console.log(num)
+            console.log(num2)
+            console.log(num3)
+            console.log(num4)
+            console.log(sum)       
+            //
+            let mass = [1, 2, [3, 4], 5, {a: 7}]
+            for (let i = 0;i<mass.length;i++){
+                 if (typeof mass[i] =="object") {
+                    //console.log(mass)
+                } else {
+                    mass.splice(i,1)
+                    i--
+                };
+                
+            }
+            console.log(mass)
+            // string
+            let pred = 'в нем могут быть обычные элементы и подмассивы'
+            let sp = pred.split(' ')
+            for (let i =0;i<sp.length;i++) {
+                if (sp[i].length<4){
+                    sp.splice(i,1)
+                    i--
+                }
+            }
+
+            //console.log(sp)
+            console.log(sp.length)
+            //console.log(sp[0].length)
+
+            // string 2
+            
+            /*function sixString() {
+                let st = 'abcd123456ef5234'
+                let stSplit = st.split('')
+                for (let i = 0;i<stSplit.length;i++){
+                    if (isNaN(Number(stSplit[i]))){
+                        stSplit.splice(i,1)
+                        i--
+                    }
+
+                }
+                //console.log(stSplit)
+            }*/
+            //sixString()
+
+           /* function sixString1() {
+                let st = 'abcd123456ef5234'
+                //let stSplit = st.split('')
+                for (let i = 0;i<st.length;i++){
+                    if (isNaN(Number(st[i]))){
+                        st.splice(i,1)
+                        i--
+                    }
+
+                }
+                console.log(stSplit)
+            }
+            sixString1()*/
+            function sixString1(stroka) {
+                let st = stroka
+                let stSplit = st.split('')
+                let numbStSplit = [];
+                let g = '';
+                for (let i = 0;i<stSplit.length;i++){
+                    numbStSplit[i] = Number(stSplit[i])
+                    if (!isNaN(numbStSplit[i])){
+                        numbStSplit[i] = 1;
+                        //console.log(numbStSplit[i])
+                    } else {
+                        numbStSplit[i] = 2
+                    }
+                    //if ()
+                    g = numbStSplit.toString();
+                    
+                }
+                //console.log(numbStSplit)
+                //console.log(g)
+                
+                //console.log(g.replace(/[\s.,%]/g,'').indexOf('21111112'))
+                //console.log(g.replace(/[\s.,%]/g,''))
+                g.replace(/[\s.,%]/g,'').includes('21111112') ? console.log(st.substring(g.replace(/[\s.,%]/g,'').indexOf('21111112')+1,g.replace(/[\s.,%]/g,'').indexOf('21111112')+7)) : console.log('false');
+            
+            }   
+            sixString1('abc1234567asd')
+        </script>
+    </body>
+</html>
